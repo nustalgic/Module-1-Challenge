@@ -20,17 +20,17 @@ print(number_loans)
 # How many loans are in the list?
 # @TODO: Use the `len` function to calculate the total number of loans in the list.
 # Print the number of loans from the list
-# len(loan_costs)
+len(loan_costs)
 
 # What is the total of all loans?
 # @TODO: Use the `sum` function to calculate the total of all loans in the list.
 # Print the total value of the loans
-# sum(loan_costs)
+sum(loan_costs)
 
 # What is the average loan amount from the list?
 # @TODO: Using the sum of all loans and the total number of loans, calculate the average loan price.
 # Print the average loan amount
-# sum(loan_costs) / len(loan_costs)
+sum(loan_costs) / len(loan_costs)
 
 """Part 2: Analyze Loan Data.
 
@@ -67,9 +67,9 @@ loan = {
 # Print each variable.
 cost = loan.get("loan_price")
 future_value = loan.get("future_value")
-print(future)
+print(future_value)
 remaining_months = loan.get("remaining_months")
-print(remain)
+print(remaining_months)
 annual_discount_rate = 0.20
 
 
@@ -103,7 +103,6 @@ Perform financial calculations using functions.
 2. Use the function to calculate the present value of the new loan given below.
     a. Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 """
-
 
 
 # Given the following loan data, you will need to calculate the present value for the loan
@@ -177,7 +176,6 @@ for loan in loans:
     if loan.get("loan_price") <= 500:
         inexpensive_loans.append(loan)
 
-
 # @TODO: Print the `inexpensive_loans` list
 
 print(f"{inexpensive_loans}")
@@ -205,4 +203,8 @@ output_path = Path("inexpensive_loans.csv")
 
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
-# YOUR CODE HERE!
+with open(file = output_path, mode="w") as csvfile:
+    csvwriter=csv.writer(csvfile)
+    csvwriter.writerow(header)
+    for loan in inexpensive_loans:
+        csvwriter.writerow(loan.values())
