@@ -18,17 +18,17 @@ sum_loans = sum(loan_costs)
 print(number_loans)
 
 # How many loans are in the list?
-# @TODO: Use the `len` function to calculate the total number of loans in the list.
+# `len` function to calculate the total number of loans in the list.
 # Print the number of loans from the list
 len(loan_costs)
 
 # What is the total of all loans?
-# @TODO: Use the `sum` function to calculate the total of all loans in the list.
+# `sum` function to calculate the total of all loans in the list.
 # Print the total value of the loans
 sum(loan_costs)
 
 # What is the average loan amount from the list?
-# @TODO: Using the sum of all loans and the total number of loans, calculate the average loan price.
+# The sum of all loans and the total number of loans, calculate the average loan price.
 # Print the average loan amount
 sum(loan_costs) / len(loan_costs)
 
@@ -63,7 +63,7 @@ loan = {
     "future_value": 1000,
 }
 
-# @TODO: Use get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
+# Used get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
 # Print each variable.
 cost = loan.get("loan_price")
 future_value = loan.get("future_value")
@@ -73,15 +73,14 @@ print(remaining_months)
 annual_discount_rate = 0.20
 
 
-# @TODO: Use the formula for Present Value to calculate a "fair value" of the loan.
+# Used the formula for Present Value to calculate a "fair value" of the loan.
 # Use a minimum required return of 20% as the discount rate.
 #   You'll want to use the **monthly** version of the present value formula.
-#   HINT: Present Value = Future Value / (1 + Discount_Rate/12) ** remaining_months
 
 present_value = future_value / (1+annual_discount_rate/12) ** remaining_months
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
-# @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
+# Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
 #    If the present value of the loan is greater than or equal to the cost, then print a message that says the loan is worth at least the cost to buy it.
 #    Else, the present value of the loan is less than the loan cost, then print a message that says that the loan is too expensive and not worth the price.
 
@@ -113,7 +112,7 @@ new_loan = {
     "future_value": 1000,
 }
 
-# @TODO: Define a new function that will be used to calculate present value.
+# Defined a new function that will be used to calculate present value.
 #    This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
 #    The function should return the `present_value` for the loan.
 
@@ -121,8 +120,8 @@ def calculate_present_value(future_value, remaining_months, annual_discount_rate
     present_value = future_value / (1+annual_discount_rate/12) ** remaining_months
     return present_value
 
-# @TODO: Use the function to calculate the present value of the new loan given below.
-#    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
+# Used the function above to calculate the present value of the new loan given below.
+#    Used an `annual_discount_rate` of 0.2 for this new loan calculation.
 
 present_value = calculate_present_value(future_value=1000, remaining_months=12, annual_discount_rate=.20)
 
@@ -167,16 +166,16 @@ loans = [
     },
 ]
 
-# @TODO: Create an empty list called `inexpensive_loans`
+# Create an empty list called `inexpensive_loans`
 inexpensive_loans = []
 
-# @TODO: Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
+#  Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
 for loan in loans:
     
     if loan.get("loan_price") <= 500:
         inexpensive_loans.append(loan)
 
-# @TODO: Print the `inexpensive_loans` list
+# Print the `inexpensive_loans` list
 
 print(f"{inexpensive_loans}")
 
@@ -201,7 +200,7 @@ header = ["loan_price", "remaining_months", "repayment_interval", "future_value"
 # Set the output file path
 output_path = Path("inexpensive_loans.csv")
 
-# @TODO: Use the csv library and `csv.writer` to write the header row
+# Used the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 with open(file = output_path, mode="w") as csvfile:
     csvwriter=csv.writer(csvfile)
